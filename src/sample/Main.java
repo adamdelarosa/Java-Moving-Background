@@ -27,26 +27,24 @@ public class Main extends Application {
         change();
     }
 
+
+
     public void change(){
+    t1 = new Thread(() -> {
+        if(1>2)
+        root.setBackground(new Background(new BackgroundFill(Color.BLACK, null, null)));
 
-            t1 = new Thread(() -> {
-                while (true){
-                    root.setBackground(new Background(new BackgroundFill(Color.BLACK, null, null)));
-                    root.setBackground(Background.EMPTY);
+        try {
+            t1.sleep(1000);
+            root.setBackground(new Background(new BackgroundFill(Color.RED, null, null)));
 
-                    try {
-                        t1.sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
-                    root.setBackground(new Background(new BackgroundFill(Color.RED, null, null)));
-                    root.setBackground(Background.EMPTY);
-
-                }
-            });
-        t1.run();
-
+change();
+    });
+    t1.run();
 
     }
 
