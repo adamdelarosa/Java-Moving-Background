@@ -20,32 +20,15 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        //root.setBackground(new Background(new BackgroundFill(Color.BLACK, null, null)));
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 600, 800));
         primaryStage.show();
-        change();
     }
 
 
 
-    public void change(){
-    t1 = new Thread(() -> {
-        if(1>2)
+    public void change() {
         root.setBackground(new Background(new BackgroundFill(Color.BLACK, null, null)));
-
-        try {
-            t1.sleep(1000);
-            root.setBackground(new Background(new BackgroundFill(Color.RED, null, null)));
-
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-change();
-    });
-    t1.run();
-
     }
 
 
