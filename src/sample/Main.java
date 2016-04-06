@@ -20,20 +20,25 @@ import javafx.util.Duration;
 
 public class Main extends Application {
 
-    Parent root = new Parent() {};
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 600, 800));
-        primaryStage.show();
+    public void start(Stage stage) throws Exception {
+        Group root = new Group();
+        Scene scene = new Scene(root, 260, 80);
+        stage.setScene(scene);
 
+        Group g = new Group();
 
+        Polygon polygon = new Polygon();
+        polygon.getPoints().addAll(new Double[]{
+                0.0, 0.0,
+                20.0, 10.0,
+                10.0, 20.0 });
 
-        root.getChildren().add(ft.getShape());
+        g.getChildren().add(polygon);
 
-
+        scene.setRoot(g);
+        stage.show();
     }
 
 
