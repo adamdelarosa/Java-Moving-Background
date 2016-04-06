@@ -16,7 +16,6 @@ public class Background {
     Main changeBG;
 
     Main main;
-    String image = "sample/asset/splash.jpg";
 
     public Background(Main changebg) {
         changeBG = changebg;
@@ -27,7 +26,6 @@ public class Background {
         main.getStage().setTitle("Hello BG!"); // <--(stage)
         changeBG.root.setStyle("-fx-background-image: url('sample/asset/splash.jpg')");
 
-        Main mm = changeBG;
 
         //Image in:
         BackgroundImage myBI = new BackgroundImage(new Image("sample/asset/splash.jpg", 32, 32, false, true),
