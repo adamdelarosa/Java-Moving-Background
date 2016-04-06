@@ -21,12 +21,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         stage = primaryStage;
         root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        root.setStyle("-fx-background-color: #F0591E;");
-
         Scene scene = new Scene(root);
-
-        stage.setTitle("FXErcycton v1.0.0");
-
         stage.setScene(scene);
         stage.show();
         MainStarter();
@@ -36,7 +31,6 @@ public class Main extends Application {
     public void MainStarter() {
         background.changeBackground();
     }
-
 
 
     public static void main(String[] args) {

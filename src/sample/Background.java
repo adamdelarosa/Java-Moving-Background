@@ -15,6 +15,6 @@ public class Background {
 
     public void changeBackground(){
         changeBG.root.setStyle("-fx-background-color: #FFFF3E;");
-        firstStage.getStage().setTitle("ds");
+        firstStage.getStage().setTitle("Hello BG");
     }
 }
