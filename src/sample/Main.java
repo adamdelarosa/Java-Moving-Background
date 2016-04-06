@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
     Parent root;
-
+    Background background = new Background(this);
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -22,12 +22,14 @@ public class Main extends Application {
 
         stage.setScene(scene);
         stage.show();
+        change();
     }
 
 
 
     public void change() {
        // root.setBackground(new Background(new BackgroundFill(Color.BLACK, null, null)));
+        background.changeBackground();
 
     }
 
