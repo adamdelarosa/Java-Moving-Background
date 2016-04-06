@@ -5,10 +5,4 @@ package sample;
  */
 
 public class Background {
-
-    public Main mainbackground;
-
-    public Background(String mainBackGround){
-
-    }
 }

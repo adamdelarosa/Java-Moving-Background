@@ -14,24 +14,6 @@ import javafx.util.Duration;
 
 public class Controller {
 
-    Main Root;
-
-    Controller(Pane rooter){
-        rooter = rooter;
-    }
-
-
-    public void animateLogo() {
-        Rectangle rect = new Rectangle (366, 366, 366, 366);
-        FillTransition ft = new FillTransition(Duration.millis(1000), rect, Color.RED, Color.BLACK);
-        ft.setCycleCount(400);
-        ft.setAutoReverse(true);
-        ft.play();
-        rooter.root.getChildren().add(ft.getShape());
-
-        ft.play();
-
-    }
 }
 
 
