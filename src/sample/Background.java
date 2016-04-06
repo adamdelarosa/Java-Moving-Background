@@ -6,13 +6,17 @@ package sample;
 
 public class Background {
 
-    Main changeBG;
+    Main changeBG,firstStage;
 
-    public Background(Main changebg){
+    public Background(Main changebg,Main firststage){
         changeBG = changebg;
+        firstStage  =firststage;
     }
 
     public void changeBackground(){
         changeBG.root.setStyle("-fx-background-color: #FFFF3E;");
+        //firstStage.stage.setTitle("FXErcycton v1.0.0");
+
+
     }
 }
