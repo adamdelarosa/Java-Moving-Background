@@ -6,15 +6,16 @@ package sample;
 
 public class Background {
 
-    Main changeBG,firstStage;
+    Main changeBG;
 
-    public Background(Main changebg,Main firststage){
+    Main main;
+
+    public Background(Main changebg){
         changeBG = changebg;
-        firstStage  =firststage;
     }
 
     public void changeBackground(){
         changeBG.root.setStyle("-fx-background-color: #FFFF3E;");
-        firstStage.getStage().setTitle("Hello BG");
+        main.getStage().setTitle("Hello BG!");
     }
 }
