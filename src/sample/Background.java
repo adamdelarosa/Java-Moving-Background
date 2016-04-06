@@ -15,8 +15,6 @@ public class Background {
 
     public void changeBackground(){
         changeBG.root.setStyle("-fx-background-color: #FFFF3E;");
-        //firstStage.stage.setTitle("FXErcycton v1.0.0");
-
-
+        firstStage.getStage().setTitle("ds");
     }
 }

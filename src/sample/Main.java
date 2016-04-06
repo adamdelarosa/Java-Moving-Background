@@ -11,10 +11,15 @@ public class Main extends Application {
     public Parent root;
     public Background background = new Background(this,this);
 
+    private static Stage stage;
 
+    public static Stage getStage() {
+        return stage;
+    }
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage primaryStage) throws Exception {
+        stage = primaryStage;
         root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         root.setStyle("-fx-background-color: #F0591E;");
 
@@ -28,10 +33,8 @@ public class Main extends Application {
     }
 
 
-
     public void MainStarter() {
         background.changeBackground();
-
     }
 
 
