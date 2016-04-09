@@ -6,15 +6,12 @@ import javafx.scene.image.ImageView;
 
 public class Background {
 
-    Main changeBG,main;
+    Main main;
+    Image backGroundimageSpace = new Image("sample/asset/splash.jpg");
 
     int x=30;
     int y=30;
-    Image backGroundimageSpace = new Image("sample/asset/splash.jpg");
 
-    public Background(Main changebg) {
-        changeBG = changebg;
-    }
 
     public void changeBackground() {
 
