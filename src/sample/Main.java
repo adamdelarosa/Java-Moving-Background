@@ -37,7 +37,7 @@ public class Main extends Application {
     }
 
     public void MainStarter() {
-        Background bg = new Background(this);
+        Background bg = new Background();
         bg.changeBackground();
 
     }

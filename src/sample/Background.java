@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.geometry.Rectangle2D;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -15,5 +16,14 @@ public class Background {
         imageViewOne.setImage(backGroundimageSpace);
         main.getBox().getChildren().add(imageViewOne);
         main.getRoot().getChildren().add(main.getBox());
+
+
+        for(int moveX=0;moveX<=100;moveX++){
+            System.out.println(moveX);
+            if (moveX == 100){
+                moveX = 0;
+            }
+
+        }
     }
 }
