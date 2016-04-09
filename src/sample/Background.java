@@ -2,6 +2,7 @@ package sample;
 
 
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
@@ -17,22 +18,24 @@ public class Background {
 
     int x=30;
     int y=30;
+    Image imageSpace = new Image("sample/asset/splash.jpg");
 
     public Background(Main changebg) {
         changeBG = changebg;
     }
 
     public void changeBackground() {
+
+        ImageView imageViewSpace = new ImageView();
+        imageViewSpace.setImage(imageSpace);
+
+
+
+
         changeBG.root.setStyle("-fx-background-color: #FFFF3E;");
         main.getStage().setTitle("Hello BG!"); // <--(stage)
         changeBG.root.setStyle("-fx-background-image: url('sample/asset/splash.jpg')");
 
-
-        //Image in:
-        BackgroundImage myBI = new BackgroundImage(new Image("sample/asset/splash.jpg", x, y, false, true),
-                BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
-        changeBG.root.setBackground(new Background(myBI));
-        changeBG.root.setStyle("-fx-background-image: url(myBI)");
 
 
 
