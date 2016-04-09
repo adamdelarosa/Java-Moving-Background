@@ -13,9 +13,10 @@ import javafx.scene.layout.BackgroundSize;
 
 public class Background {
 
-    Main changeBG;
+    Main changeBG,main;
 
-    Main main;
+    int x=30;
+    int y=30;
 
     public Background(Main changebg) {
         changeBG = changebg;
@@ -28,9 +29,12 @@ public class Background {
 
 
         //Image in:
-        BackgroundImage myBI = new BackgroundImage(new Image("sample/asset/splash.jpg", 32, 32, false, true),
+        BackgroundImage myBI = new BackgroundImage(new Image("sample/asset/splash.jpg", x, y, false, true),
                 BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
-       // changeBG.root.setStyle(myBI.getImage().exceptionProperty());
+        changeBG.root.setBackground(new Background(myBI));
+        changeBG.root.setStyle("-fx-background-image: url(myBI)");
+
+
 
     }
 }
