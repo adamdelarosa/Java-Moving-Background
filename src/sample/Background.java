@@ -18,13 +18,17 @@ public class Background {
 
         for (moveX = 0; moveX <= 1000; moveX++) {
             try {
-                Thread.sleep(10);
-                imageViewOne.setFitHeight(moveX);
+                Thread.sleep(150);
+                //imageViewOne.setFitHeight(moveX);
+                imageViewOne.setRotate(moveX);
+                imageViewOne.setOnMouseClicked(event -> {
+                    System.out.println("YES");
+                });
 
             }catch (InterruptedException ie){
                 System.out.println(ie + "FAIL.");
             }
-            System.out.println(moveX);
+            //System.out.println(moveX);
             if (moveX == 1000) {
                 moveX = 0;
             }
