@@ -5,6 +5,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
@@ -12,18 +15,24 @@ public class Main extends Application {
 
     public Group root = new Group();
     public Scene scene = new Scene(root,450,700);
+    public static HBox box = new HBox();
+    public static Stage stage;
 
-    // public Parent root;
-    public Background background = new Background(this);
-    private static Stage stage;
+    Image image = new Image("sample/asset/splash.jpg");
 
     public static Stage getStage() {
         return stage;
     }
 
+    public static HBox getBox() {
+        return box;
+    }
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         scene.setFill(Color.BLACK);
+
+
 
         stage = primaryStage;
         stage.sizeToScene();
@@ -37,7 +46,9 @@ public class Main extends Application {
     }
 
     public void MainStarter() {
-        background.changeBackground();
+        Background bg = new Background(this);
+        bg.changeBackground();
+
     }
 
     public static void main(String[] args) {
