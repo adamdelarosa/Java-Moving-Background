@@ -13,12 +13,12 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
-    public Group root = new Group();
+    public static Group root = new Group();
     public Scene scene = new Scene(root,450,700);
     public static HBox box = new HBox();
     public static Stage stage;
 
-    Image image = new Image("sample/asset/splash.jpg");
+    //Return type:
 
     public static Stage getStage() {
         return stage;
@@ -26,6 +26,10 @@ public class Main extends Application {
 
     public static HBox getBox() {
         return box;
+    }
+
+    public static Group getRoot(){
+        return root;
     }
 
     @Override
