@@ -15,7 +15,6 @@ public class Main extends Application {
 
     public Scene scene = new Scene(root,450,700);
     public static Group root = new Group();
-    public static HBox box = new HBox();
     public static Stage stage;
     StackPane stackPane = new StackPane();
     Image image = new Image("sample/asset/splash.jpg");
@@ -24,9 +23,6 @@ public class Main extends Application {
 
     //Return type:
 
-    public static HBox getBox() {
-        return box;
-    }
 
     public static Group getRoot(){
         return root;

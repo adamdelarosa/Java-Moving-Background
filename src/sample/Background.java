@@ -1,18 +1,24 @@
 package sample;
 
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 
 public class Background {
 
     Main main;
     int moveX = 8000;
+    public static HBox boxOne = new HBox();
+    final ImageView image = new ImageView("sample/asset/splash.jpg");
 
     public void changeBackground() {
-        ImageView imageViewOne = new ImageView("sample/asset/splash.jpg");
 
-        imageViewOne.setLayoutX(50);
-        imageViewOne.setLayoutY(30);
+        boxOne.getChildren().add(image);
+        main.getRoot().getChildren().add(boxOne);
+
+        image.setLayoutX(535);
+        image.setLayoutY(330);
+
+
 
         Thread backgroundScrollRunner = new Thread(() -> {
         for (moveX = 0; moveX <= 1000; moveX++) {
@@ -20,7 +26,7 @@ public class Background {
                 Thread.sleep(20);
                 ////imageViewOne.setFitHeight(moveX);
 
-                imageViewOne.setOnMouseClicked(event -> {
+                image.setOnMouseClicked(event -> {
                     System.out.println("YES");
                 });
 
@@ -37,9 +43,6 @@ public class Background {
             });
         backgroundScrollRunner.start();
 
-
-        main.getBox().getChildren().add(imageViewOne);
-        main.getRoot().getChildren().add(main.getBox());
 
 
     }
