@@ -31,19 +31,12 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         scene.setFill(Color.BLACK);
+        MainStarter();
         stage = primaryStage;
         stage.sizeToScene();
         stage.setScene(scene);
         //stage.setResizable(false);
         stage.show();
-
-        MainStarter();
-        StackPane stackPane = new StackPane();
-        BackgroundImage myBI= new BackgroundImage(new Image("sample/asset/splash.jpg",32,32,false,true),
-                BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
-                BackgroundSize.DEFAULT);
-//then you set to your node
-        stackPane.setBackground(new Background(myBI));
 
     }
 

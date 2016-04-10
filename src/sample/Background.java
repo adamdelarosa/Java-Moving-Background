@@ -9,32 +9,35 @@ public class Background {
     int moveX = 8000;
     public static HBox boxOne = new HBox();
     final ImageView image = new ImageView("sample/asset/splash.jpg");
+    Thread backgroundScrollRunner = new Thread();
+
+
 
     public void changeBackground() {
 
-        boxOne.getChildren().add(image);
-        main.getRoot().getChildren().add(boxOne);
-
-        image.setLayoutX(535);
-        image.setLayoutY(330);
+        image.setX(image.getX() - 432);
+        image.setY(image.getY() - 434);
 
 
+        //i.animate().translationYBy(i.getY() - 10).setDuration(1000);
 
-        Thread backgroundScrollRunner = new Thread(() -> {
-        for (moveX = 0; moveX <= 1000; moveX++) {
+
+
+
+
+        backgroundScrollRunner = new Thread(() -> {
+        for (moveX = 0; moveX <= 800; moveX+=20) {
             try {
-                Thread.sleep(20);
-                ////imageViewOne.setFitHeight(moveX);
+                Thread.sleep(500);
+                boxOne.setLayoutY(moveX);
 
-                image.setOnMouseClicked(event -> {
-                    System.out.println("YES");
-                });
+                //imageViewOne.setFitHeight(moveX);
 
             }catch (InterruptedException ie){
                 System.out.println(ie + "FAIL.");
             }
             //System.out.println(moveX);
-            if (moveX == 1000) {
+            if (moveX == 800) {
                 moveX = 0;
             }
 
@@ -43,6 +46,8 @@ public class Background {
             });
         backgroundScrollRunner.start();
 
+        boxOne.getChildren().add(image);
+        main.getRoot().getChildren().add(boxOne);
 
 
     }
