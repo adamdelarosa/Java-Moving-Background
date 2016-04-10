@@ -18,9 +18,9 @@ public class Background {
 
         for (moveX = 0; moveX <= 1000; moveX++) {
             try {
-                Thread.sleep(150);
-                //imageViewOne.setFitHeight(moveX);
-                imageViewOne.setRotate(moveX);
+                Thread.sleep(20);
+                ////imageViewOne.setFitHeight(moveX);
+
                 imageViewOne.setOnMouseClicked(event -> {
                     System.out.println("YES");
                 });
