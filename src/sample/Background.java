@@ -1,6 +1,5 @@
 package sample;
 
-import javafx.geometry.Rectangle2D;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -9,12 +8,17 @@ public class Background {
     Main main;
     Image backGroundimageSpace = new Image("sample/asset/splash.jpg");
     int moveX = 8000;
+    ImageView imageViewOne = new ImageView();
+
+
+
 
     public void changeBackground() {
-        ImageView imageViewOne = new ImageView();
         imageViewOne.setImage(backGroundimageSpace);
+        imageViewOne.setLayoutX(50);
+        imageViewOne.setLayoutY(30);
 
-            Thread backgroundScrollRunner = new Thread(() -> {
+        Thread backgroundScrollRunner = new Thread(() -> {
 
         for (moveX = 0; moveX <= 1000; moveX++) {
             try {

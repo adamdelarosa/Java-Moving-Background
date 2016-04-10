@@ -1,9 +1,13 @@
 package sample;
 
 import javafx.application.Application;
+import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.layout.HBox;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.*;
+import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
@@ -13,6 +17,10 @@ public class Main extends Application {
     public static Group root = new Group();
     public static HBox box = new HBox();
     public static Stage stage;
+    StackPane stackPane = new StackPane();
+    Image image = new Image("sample/asset/splash.jpg");
+
+
 
     //Return type:
 
@@ -30,16 +38,22 @@ public class Main extends Application {
         stage = primaryStage;
         stage.sizeToScene();
         stage.setScene(scene);
-        stage.setResizable(false);
+        //stage.setResizable(false);
         stage.show();
 
         MainStarter();
+        StackPane stackPane = new StackPane();
+        BackgroundImage myBI= new BackgroundImage(new Image("sample/asset/splash.jpg",32,32,false,true),
+                BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
+                BackgroundSize.DEFAULT);
+//then you set to your node
+        stackPane.setBackground(new Background(myBI));
+
     }
 
     public void MainStarter() {
-        Background bg = new Background();
+        sample.Background bg = new sample.Background();
         bg.changeBackground();
-
     }
     public static void main(String[] args) {
         launch(args);
