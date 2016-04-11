@@ -1,35 +1,48 @@
 package sample;
 
+import javafx.scene.Group;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.shape.Arc;
+import javafx.scene.shape.ArcType;
+import javafx.scene.shape.Polyline;
+import javafx.scene.shape.Line;
+
+import java.awt.*;
+import java.awt.image.BufferedImage;
+
 
 public class Background {
 
     Main main;
     int moveX = 8000;
     public static HBox boxOne = new HBox();
-    final ImageView image = new ImageView("sample/asset/splash.jpg");
+    final ImageView imageOne = new ImageView("sample/asset/splash.jpg");
+    final ImageView imageTwo = new ImageView("sample/asset/splash.jpg");
+
     Thread backgroundScrollRunner = new Thread();
 
+    Polygon polyline = new Polygon();
 
 
     public void changeBackground() {
 
-        image.setX(image.getX() - 432);
-        image.setY(image.getY() - 434);
 
+        Arc arc = new Arc();
 
-        //i.animate().translationYBy(i.getY() - 10).setDuration(1000);
-
-
-
-
+        arc.setRadiusX(20);
+        arc.setRadiusY(20);
+        arc.setLength(360);
+        arc.setType(ArcType.ROUND);
 
         backgroundScrollRunner = new Thread(() -> {
-        for (moveX = 0; moveX <= 800; moveX+=20) {
+        while(true) {
             try {
-                Thread.sleep(500);
-                boxOne.setLayoutY(moveX);
+                boxOne.setLayoutY(100);
+
+                Thread.sleep(10);
+
+                boxOne.setLayoutY(500);
 
                 //imageViewOne.setFitHeight(moveX);
 
@@ -37,17 +50,16 @@ public class Background {
                 System.out.println(ie + "FAIL.");
             }
             //System.out.println(moveX);
-            if (moveX == 800) {
-                moveX = 0;
+
             }
 
-        }
+
 
             });
-        backgroundScrollRunner.start();
-
-        boxOne.getChildren().add(image);
+            backgroundScrollRunner.start();
+        boxOne.getChildren().add(arc);
         main.getRoot().getChildren().add(boxOne);
+
 
 
     }

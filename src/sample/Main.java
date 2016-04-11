@@ -1,13 +1,10 @@
 package sample;
 
 import javafx.application.Application;
-import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
-import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
@@ -30,7 +27,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        scene.setFill(Color.BLACK);
+        scene.setFill(Color.WHITESMOKE);
         MainStarter();
         stage = primaryStage;
         stage.sizeToScene();
@@ -46,6 +43,5 @@ public class Main extends Application {
     }
     public static void main(String[] args) {
         launch(args);
-        /////////////
     }
 }
