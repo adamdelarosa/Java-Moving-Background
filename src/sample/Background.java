@@ -3,12 +3,11 @@ package sample;
 import javafx.scene.Group;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
-import javafx.scene.shape.Arc;
-import javafx.scene.shape.ArcType;
-import javafx.scene.shape.Polyline;
-import javafx.scene.shape.Line;
+import javafx.scene.shape.*;
+import javafx.scene.paint.Color;
 
 import java.awt.*;
+import java.awt.Polygon;
 import java.awt.image.BufferedImage;
 
 
@@ -17,8 +16,7 @@ public class Background {
     Main main;
     int moveX = 8000;
     public static HBox boxOne = new HBox();
-    final ImageView imageOne = new ImageView("sample/asset/splash.jpg");
-    final ImageView imageTwo = new ImageView("sample/asset/splash.jpg");
+
 
     Thread backgroundScrollRunner = new Thread();
 
@@ -27,39 +25,36 @@ public class Background {
 
     public void changeBackground() {
 
+        Circle circle = new Circle();
+        circle.setCenterX(1);
+        circle.setCenterY(100);
+        circle.setRadius(1);
+        circle.setFill(Color.WHITE);
 
-        Arc arc = new Arc();
-
-        arc.setRadiusX(20);
-        arc.setRadiusY(20);
-        arc.setLength(360);
-        arc.setType(ArcType.ROUND);
 
         backgroundScrollRunner = new Thread(() -> {
-        while(true) {
-            try {
-                boxOne.setLayoutY(100);
+            for(int yPoz=0;yPoz<=1000;yPoz+=10){
+                try {
+                    boxOne.setLayoutY(yPoz);
+                    boxOne.setLayoutX(yPoz);
 
-                Thread.sleep(10);
 
-                boxOne.setLayoutY(500);
+                    Thread.sleep(50);
 
-                //imageViewOne.setFitHeight(moveX);
+                    circle.setCenterX(yPoz);
+                    circle.setCenterY(yPoz);
 
-            }catch (InterruptedException ie){
-                System.out.println(ie + "FAIL.");
+                } catch (InterruptedException ie) {
+                    System.out.println(ie + "FAIL.");
+                }
+               // System.out.println(yPoz);
+
             }
-            //System.out.println(moveX);
 
-            }
-
-
-
-            });
-            backgroundScrollRunner.start();
-        boxOne.getChildren().add(arc);
+        });
+        backgroundScrollRunner.start();
+        boxOne.getChildren().add(circle);
         main.getRoot().getChildren().add(boxOne);
-
 
 
     }
