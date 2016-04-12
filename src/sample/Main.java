@@ -16,8 +16,6 @@ public class Main extends Application {
     StackPane stackPane = new StackPane();
     Image image = new Image("sample/asset/splash.jpg");
 
-
-
     //Return type:
 
 

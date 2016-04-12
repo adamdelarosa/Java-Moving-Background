@@ -9,6 +9,7 @@ import javafx.scene.paint.Color;
 import java.awt.*;
 import java.awt.Polygon;
 import java.awt.image.BufferedImage;
+import java.util.Random;
 
 
 public class Background {
@@ -16,6 +17,7 @@ public class Background {
     Main main;
     int moveX = 8000;
     public static HBox boxOne = new HBox();
+    Random rndmStar = new Random();
 
 
     Thread backgroundScrollRunner = new Thread();
