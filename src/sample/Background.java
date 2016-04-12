@@ -29,9 +29,7 @@ public class Background {
                     circle.setCenterY(yPoz);
                     Thread.sleep(50);
 
-                } catch (InterruptedException ie) {
-                    System.out.println(ie + "FAIL.");
-                }
+                } catch (InterruptedException ie) {}
             }
         });
         backgroundScrollRunner.start();
