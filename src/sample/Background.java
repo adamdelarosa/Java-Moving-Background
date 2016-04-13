@@ -19,6 +19,7 @@ import javax.swing.Timer;
 
 public class Background {
 
+    private static final int STAR_COUNT = 100;
     Main main;
     public HBox boxOne = new HBox();
     private Random rndmStarX = new Random();
@@ -26,28 +27,29 @@ public class Background {
     private Thread backgroundScrollRunner2 = new Thread();
     Circle circleStarNew = new Circle();
     Circle circle = new Circle();
+    private final Rectangle[] nodes = new Rectangle[STAR_COUNT];
 
 
-
-    private int xPoz = rndmStarX.nextInt(450);
+    int xPoz = rndmStarX.nextInt(450);
 
 
     public void paintComponent() {
         backgroundScrollRunner2 = new Thread(() -> {
             while (true) {
-                Circle circleStar = new Circle();
-                circleStar.setRadius(1);
-                circleStar.setFill(Color.WHITE);
 
-                System.out.println("YO");
 
                 for (int yPoz = 0; 1 <= 2; yPoz += 2) {
                     try {
+
+                        Circle circleStar = new Circle;
+                        circleStar.setRadius(1);
+                        circleStar.setFill(Color.WHITE);
+
                         boxOne.setLayoutX(xPoz);
                         boxOne.setLayoutY(yPoz);
                         circleStar.setCenterX(xPoz);
                         circleStar.setCenterY(yPoz);
-                        Thread.sleep(1000);
+                        Thread.sleep(500);
                         circleStarNew = circleStar;
                         System.out.println("YO"  +  yPoz);
 
@@ -66,18 +68,24 @@ public class Background {
         circle.setFill(Color.WHITE);
 
         backgroundScrollRunner = new Thread(() -> {
-            for (int yPoz = 0; 1 <= 2; yPoz += 2) {
-                try {
-                    boxOne.setLayoutX(xPoz);
-                    boxOne.setLayoutY(yPoz);
-                    circle.setCenterX(xPoz);
-                    circle.setCenterY(yPoz);
-                    Thread.sleep(50);
-                } catch (InterruptedException ie) {
+            while(true) {
+                int xPoz = rndmStarX.nextInt(450);
+
+                for (int yPoz = 0; 1 <= 2; yPoz += 2) {
+                    try {
+
+                        boxOne.setLayoutX(xPoz);
+                        boxOne.setLayoutY(yPoz);
+                        circle.setCenterX(xPoz);
+                        circle.setCenterY(yPoz);
+                        System.out.println(yPoz);
+                        Thread.sleep(500);
+                    } catch (InterruptedException ie) {
+                    }
                 }
             }
         });
-        backgroundScrollRunner.start();
+       // backgroundScrollRunner.start();
 
         paintComponent();
         //Add to Root
