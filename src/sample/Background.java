@@ -30,7 +30,9 @@ public class Background {
             }
         });
         backgroundScrollRunner.start();
+
         //Add to Root
+
         boxOne.getChildren().add(circle);
         main.getRoot().getChildren().add(boxOne);
     }
