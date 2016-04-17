@@ -25,38 +25,31 @@ public class Background {
     private Random rndmStarX = new Random();
     private Thread backgroundScrollRunner = new Thread();
     private Thread backgroundScrollRunner2 = new Thread();
-    Circle circleStarNew = new Circle();
     Circle circle = new Circle();
-    private final Rectangle[] nodes = new Rectangle[STAR_COUNT];
+    Rectangle[] nodes = new Rectangle[STAR_COUNT];
 
 
     int xPoz = rndmStarX.nextInt(450);
-
+    int yPoz;
 
     public void paintComponent() {
         backgroundScrollRunner2 = new Thread(() -> {
             while (true) {
 
-
-                for (int yPoz = 0; 1 <= 2; yPoz += 2) {
+                for (yPoz = 0; 1 <= 2; yPoz += 2) {
                     try {
+                        nodes[yPoz] = new Rectangle(yPoz, yPoz, Color.WHITE);
 
-                        Circle circleStar = new Circle;
-                        circleStar.setRadius(1);
-                        circleStar.setFill(Color.WHITE);
+                       // Circle circleStar = new Circle();
 
                         boxOne.setLayoutX(xPoz);
                         boxOne.setLayoutY(yPoz);
-                        circleStar.setCenterX(xPoz);
-                        circleStar.setCenterY(yPoz);
-                        Thread.sleep(500);
-                        circleStarNew = circleStar;
+                        Thread.sleep(50);
                         System.out.println("YO"  +  yPoz);
 
                     } catch (InterruptedException ie) {
                     }
                 }
-
             }
         });
         backgroundScrollRunner2.start();
@@ -91,7 +84,7 @@ public class Background {
         //Add to Root
         boxOne.getChildren().add(circle);
 
-        boxOne.getChildren().add(circleStarNew);
+        boxOne.getChildren().add(nodes[yPoz]);
         main.getRoot().getChildren().add(boxOne);
     }
 
