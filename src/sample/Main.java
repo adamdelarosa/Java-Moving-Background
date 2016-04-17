@@ -19,16 +19,7 @@ public class Main extends Application {
     public static Group nodes = new Group();
 
     public static Stage stage;
-    StackPane stackPane = new StackPane();
-    Image image = new Image("sample/asset/splash.jpg");
 
-
-    //Return type:
-
-
-    public static Group getRoot(){
-        return root;
-    }
     public static Group getNodes(){
         return nodes;
     }
