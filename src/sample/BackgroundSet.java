@@ -21,34 +21,25 @@ public class BackgroundSet {
     }
 
     public void paintComponent() {
-        circleMain.setRadius(1);
-        circleMain.setFill(Color.WHITE);
         backgroundScrollRunner = new Thread(() -> {
-            while (true) {
-
                 for (int yPoz = 0; true; yPoz += 5) {
                     try {
                         //Circle circle = new Circle();
                         Rectangle star = new Rectangle(1,2,Color.BLANCHEDALMOND);
 
-
-
                         starMain = star;
-                        //circleMain = circle;
                         boxOne.setLayoutX(xPoz);
                         boxOne.setLayoutY(yPoz);
                         Thread.sleep(100);
                     } catch (InterruptedException ie) {}
                 }
-            }
+
         });
         backgroundScrollRunner.start();
-
     }
 
     public void changeBackground() {
         boxOne.getChildren().add(starMain);
-
         main.getRoot().getChildren().add(boxOne);
     }
 
