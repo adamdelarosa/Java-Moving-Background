@@ -7,12 +7,12 @@ import java.util.Random;
 
 public class BackgroundSet {
 
-    Main main;
-    public HBox boxOne = new HBox();
+    private Main main;
+    private HBox boxOne = new HBox();
     private Random rndmStarX = new Random();
     private Thread backgroundScrollRunner = new Thread();
-    Rectangle starMain = new Rectangle(1,2,Color.BLANCHEDALMOND);
-    int xPoz = rndmStarX.nextInt(450);
+    private Rectangle starMain = new Rectangle(1,2,Color.BLANCHEDALMOND);
+    private int xPoz = rndmStarX.nextInt(450);
 
 
     BackgroundSet(){
@@ -22,15 +22,13 @@ public class BackgroundSet {
 
     public void paintComponent() {
         backgroundScrollRunner = new Thread(() -> {
-                for (int yPoz = 0; true; yPoz += 5) {
+                for (int yPoz = 0; true; yPoz += 2) {
                     try {
-                        //Circle circle = new Circle();
-                        Rectangle star = new Rectangle(1,2,Color.BLANCHEDALMOND);
 
-                        starMain = star;
+
                         boxOne.setLayoutX(xPoz);
                         boxOne.setLayoutY(yPoz);
-                        Thread.sleep(100);
+                        Thread.sleep(150);
                     } catch (InterruptedException ie) {}
                 }
 
