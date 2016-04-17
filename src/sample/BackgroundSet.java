@@ -11,8 +11,9 @@ public class BackgroundSet {
     public HBox boxOne = new HBox();
     private Random rndmStarX = new Random();
     private Thread backgroundScrollRunner = new Thread();
-    Circle circleMain = new Circle();
+    Rectangle starMain = new Rectangle(1,2,Color.BLANCHEDALMOND);
     int xPoz = rndmStarX.nextInt(450);
+
 
     BackgroundSet(){
         paintComponent();
@@ -25,22 +26,29 @@ public class BackgroundSet {
         backgroundScrollRunner = new Thread(() -> {
             while (true) {
 
-                for (int yPoz = 0; true; yPoz += 2) {
+                for (int yPoz = 0; true; yPoz += 5) {
                     try {
-                        Circle circle = new Circle();
-                        circleMain = circle;
+                        //Circle circle = new Circle();
+                        Rectangle star = new Rectangle(1,2,Color.BLANCHEDALMOND);
+
+
+
+                        starMain = star;
+                        //circleMain = circle;
                         boxOne.setLayoutX(xPoz);
                         boxOne.setLayoutY(yPoz);
-                        Thread.sleep(50);
+                        Thread.sleep(100);
                     } catch (InterruptedException ie) {}
                 }
             }
         });
         backgroundScrollRunner.start();
+
     }
 
     public void changeBackground() {
-        boxOne.getChildren().add(circleMain);
+        boxOne.getChildren().add(starMain);
+
         main.getRoot().getChildren().add(boxOne);
     }
 
