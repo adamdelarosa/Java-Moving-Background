@@ -12,8 +12,9 @@ public class BackgroundSet {
     private HBox boxOne = new HBox();
     private Random rndmStarX = new Random();
     private Thread backgroundScrollRunner = new Thread();
-    private Rectangle starMain = new Rectangle(1, 2, Color.BLANCHEDALMOND);
     private int xPoz = rndmStarX.nextInt(450);
+    Rectangle starMain = new Rectangle(1, 2, Color.BLANCHEDALMOND);
+
 
 
     BackgroundSet() {
@@ -26,7 +27,8 @@ public class BackgroundSet {
             for (int yPoz = 0; true; yPoz += 2) {
                 try {
 
-                    starMain.setHeight(33);
+                    starMain.setWidth(yPoz);
+                    starMain.setHeight(yPoz);
 
                     //boxOne.setLayoutX(xPoz);
                     //boxOne.setLayoutY(yPoz);
@@ -41,7 +43,7 @@ public class BackgroundSet {
 
     public void changeBackground() {
         boxOne.getChildren().add(starMain);
-        main.getRoot().getChildren().add(boxOne);
+        main.getNodes().getChildren().add(boxOne);
     }
 
 }
