@@ -5,19 +5,8 @@ import javafx.scene.shape.*;
 import javafx.scene.paint.Color;
 
 import java.util.Random;
-import java.awt.Graphics;
 
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
-import javax.swing.Timer;
-
-
-public class Background {
+public class BackgroundSet {
 
     private static final int STAR_COUNT = 100;
     Main main;
@@ -32,6 +21,12 @@ public class Background {
     int xPoz = rndmStarX.nextInt(450);
     int yPoz;
 
+    BackgroundSet(){
+        paintComponent();
+        changeBackground();
+    }
+
+
     public void paintComponent() {
         backgroundScrollRunner2 = new Thread(() -> {
             while (true) {
@@ -40,7 +35,7 @@ public class Background {
                     try {
                         nodes[yPoz] = new Rectangle(yPoz, yPoz, Color.WHITE);
 
-                       // Circle circleStar = new Circle();
+                        // Circle circleStar = new Circle();
 
                         boxOne.setLayoutX(xPoz);
                         boxOne.setLayoutY(yPoz);
@@ -60,27 +55,7 @@ public class Background {
         circle.setRadius(1);
         circle.setFill(Color.WHITE);
 
-        backgroundScrollRunner = new Thread(() -> {
-            while(true) {
-                int xPoz = rndmStarX.nextInt(450);
 
-                for (int yPoz = 0; 1 <= 2; yPoz += 2) {
-                    try {
-
-                        boxOne.setLayoutX(xPoz);
-                        boxOne.setLayoutY(yPoz);
-                        circle.setCenterX(xPoz);
-                        circle.setCenterY(yPoz);
-                        System.out.println(yPoz);
-                        Thread.sleep(500);
-                    } catch (InterruptedException ie) {
-                    }
-                }
-            }
-        });
-       // backgroundScrollRunner.start();
-
-        paintComponent();
         //Add to Root
         boxOne.getChildren().add(circle);
 

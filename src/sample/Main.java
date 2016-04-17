@@ -5,6 +5,7 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
+import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
@@ -36,8 +37,7 @@ public class Main extends Application {
     }
 
     public void MainStarter() {
-        sample.Background bg = new sample.Background();
-        bg.changeBackground();
+        new BackgroundSet();
     }
     public static void main(String[] args) {
         launch(args);
