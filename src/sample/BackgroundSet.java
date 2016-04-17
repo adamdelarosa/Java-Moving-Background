@@ -3,6 +3,7 @@ package sample;
 import javafx.scene.layout.HBox;
 import javafx.scene.shape.*;
 import javafx.scene.paint.Color;
+
 import java.util.Random;
 
 public class BackgroundSet {
@@ -11,26 +12,28 @@ public class BackgroundSet {
     private HBox boxOne = new HBox();
     private Random rndmStarX = new Random();
     private Thread backgroundScrollRunner = new Thread();
-    private Rectangle starMain = new Rectangle(1,2,Color.BLANCHEDALMOND);
+    private Rectangle starMain = new Rectangle(1, 2, Color.BLANCHEDALMOND);
     private int xPoz = rndmStarX.nextInt(450);
 
 
-    BackgroundSet(){
+    BackgroundSet() {
         paintComponent();
         changeBackground();
     }
 
     public void paintComponent() {
         backgroundScrollRunner = new Thread(() -> {
-                for (int yPoz = 0; true; yPoz += 2) {
-                    try {
+            for (int yPoz = 0; true; yPoz += 2) {
+                try {
 
+                    starMain.setHeight(33);
 
-                        boxOne.setLayoutX(xPoz);
-                        boxOne.setLayoutY(yPoz);
-                        Thread.sleep(150);
-                    } catch (InterruptedException ie) {}
+                    //boxOne.setLayoutX(xPoz);
+                    //boxOne.setLayoutY(yPoz);
+                    Thread.sleep(150);
+                } catch (InterruptedException ie) {
                 }
+            }
 
         });
         backgroundScrollRunner.start();
