@@ -20,6 +20,8 @@ public class Main extends Application {
 
     public static Stage stage;
 
+    BackgroundSet backgroundSet;
+
     public static Group getNodes(){
         return nodes;
     }
@@ -35,13 +37,11 @@ public class Main extends Application {
         stage.setScene(sceneStars);
         //stage.setResizable(false);
         stage.show();
-        final Node node = nodes;
-
-
     }
 
+
     public void MainStarter() {
-        new BackgroundSet();
+        new BackGroundMove();
     }
     public static void main(String[] args) {
         launch(args);
