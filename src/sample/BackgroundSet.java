@@ -26,12 +26,13 @@ public class BackgroundSet {
         iv1.setFitWidth(600);
         iv1.setFitHeight(600);
 
-
+        //Background movement:
         backgroundScrollRunner = new Thread(() -> {
+
         });
         backgroundScrollRunner.start();
 
-
+        //Start Adding to main screen:
         changeBackground();
     }
 
