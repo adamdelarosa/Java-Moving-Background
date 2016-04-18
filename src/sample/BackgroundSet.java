@@ -1,45 +1,50 @@
 package sample;
 
-import javafx.scene.layout.HBox;
-import javafx.scene.shape.*;
-import javafx.scene.paint.Color;
-
-import java.util.Random;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.*;
 
 public class BackgroundSet {
 
-    private Main main;
-    private HBox boxOne = new HBox();
-    private Random rndmStarX = new Random();
-    private Thread backgroundScrollRunner = new Thread();
-    private int xPoz = rndmStarX.nextInt(450);
-    Rectangle starMain = new Rectangle(1, 2, Color.BLANCHEDALMOND);
+    public Main main;
+    Image image = new Image("sample/asset/splash.jpg");
+    ImageView iv1 = new ImageView();
 
-    BackgroundSet() {
+
+    BackgroundSet(){
         paintComponent();
-        changeBackground();
     }
 
     public void paintComponent() {
-        backgroundScrollRunner = new Thread(() -> {
-            for (int yPoz = 0; true; yPoz += 2) {
-                try {
-
-                    boxOne.setTranslateX(xPoz);
-                    boxOne.setTranslateY(yPoz);
-
-                    Thread.sleep(150);
-                } catch (InterruptedException ie) {
-                }
-            }
-
-        });
-        backgroundScrollRunner.start();
+        iv1.setImage(image);
+        iv1.setFitWidth(100);
+        iv1.setPreserveRatio(true);
+        iv1.setSmooth(true);
+        iv1.setCache(true);
+        System.out.println("sa");
+        changeBackground();
     }
 
     public void changeBackground() {
-        boxOne.getChildren().add(starMain);
-        main.getNodes().getChildren().add(boxOne);
+        HBox boxOne = new HBox();
+        boxOne.getChildren().add(iv1);
+        main.getRoot().getChildren().add(boxOne);
     }
 
 }
+
+
+/*
+
+
+    private Thread backgroundScrollRunner = new Thread();
+
+    public void paintComponent() {
+
+        boxOne.setBackground(new Background(myBI));
+
+
+        backgroundScrollRunner = new Thread(() -> {
+        });
+        backgroundScrollRunner.start();
+    }*/
