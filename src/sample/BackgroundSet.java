@@ -32,19 +32,39 @@ public class BackgroundSet {
         iv2.setImage(imageTwo);
         iv2.setViewport(viewportRectTwo);
 
+        //For now:
+        iv2.setTranslateY(0);
+        iv1.setTranslateY(0);
+
+
 
         //Background movement:
         backgroundScrollRunner = new Thread(() -> {
-            for(int positionY = 0; true; positionY+=4) {
+            int positionYTwo = -1;
+            int positionYOne = -1;
+
+            while(true) {
+                positionYOne+=10;
                 try {
-                    if(iv1.getTranslateY() == 500){
-                        System.out.println("Yes");
+                    if(iv1.getTranslateY() >= 500 || iv1.getTranslateY() == 0){
+                        positionYTwo+=10;
+                        iv2.setTranslateY(positionYTwo);
+                        System.out.println("Two started" + positionYTwo);
+
                     }
 
-                    iv1.setTranslateY(positionY);
+                    if(iv2.getTranslateY() >= 500 || iv1.getTranslateY() >= 1000){
+                        iv1.setTranslateY(0);
+                        positionYOne+=10;
+                        positionYOne = 0;
+                        System.out.println("One started" + positionYOne);
 
-                    backgroundScrollRunner.sleep(50);
+                    }
+
+                    iv1.setTranslateY(positionYOne);
                     System.out.println(iv1.getTranslateY());
+
+                    backgroundScrollRunner.sleep(100);
 
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -60,8 +80,10 @@ public class BackgroundSet {
 
     public void changeBackground() {
         HBox boxOne = new HBox();
+        HBox boxTwo = new HBox();
         boxOne.getChildren().add(iv1);
-        boxOne.getChildren().add(iv2);
+        boxTwo.getChildren().add(iv2);
+        main.getRoot().getChildren().add(boxTwo);
         main.getRoot().getChildren().add(boxOne);
     }
 
