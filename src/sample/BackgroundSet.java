@@ -11,7 +11,6 @@ public class BackgroundSet {
     Image image = new Image("sample/asset/splash.jpg");
     ImageView iv1 = new ImageView();
     private Thread backgroundScrollRunner = new Thread();
-    Rectangle2D viewportRect = new Rectangle2D(500, 500, 200, 200);
 
     BackgroundSet(){
         paintComponent();
@@ -19,16 +18,26 @@ public class BackgroundSet {
 
     public void paintComponent() {
         iv1.setImage(image);
-        iv1.setFitWidth(100);
         iv1.setPreserveRatio(true);
         iv1.setSmooth(true);
         iv1.setCache(true);
         iv1.setY(800);
         iv1.setX(800);
-        iv1.setViewport(viewportRect);
 
         //Background movement:
         backgroundScrollRunner = new Thread(() -> {
+            for(int positionY = 0; true; positionY+=5) {
+                try {
+                    Rectangle2D viewportRect = new Rectangle2D(500, 500, 500, 500);
+
+                    iv1.setViewport(viewportRect);
+                    iv1.setTranslateY(positionY);
+
+                    backgroundScrollRunner.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
 
         });
         backgroundScrollRunner.start();
