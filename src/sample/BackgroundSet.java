@@ -8,10 +8,18 @@ import javafx.scene.layout.*;
 public class BackgroundSet {
 
     public Main main;
-    Image image = new Image("sample/asset/splash.jpg");
+
+    Image imageOne = new Image("sample/asset/splash.jpg");
+    Image imageTwo = new Image("sample/asset/splash.jpg");
+
+
     ImageView iv1 = new ImageView();
+    ImageView iv2 = new ImageView();
+
     private Thread backgroundScrollRunner = new Thread();
-    Rectangle2D viewportRect = new Rectangle2D(500, 500, 500, 500);
+    Rectangle2D viewportRectOne = new Rectangle2D(500, 500, 500, 500);
+    Rectangle2D viewportRectTwo = new Rectangle2D(500, 500, 500, 500);
+
 
 
     BackgroundSet(){
@@ -19,8 +27,10 @@ public class BackgroundSet {
     }
 
     public void paintComponent() {
-        iv1.setImage(image);
-        iv1.setViewport(viewportRect);
+        iv1.setImage(imageOne);
+        iv1.setViewport(viewportRectOne);
+        iv2.setImage(imageTwo);
+        iv2.setViewport(viewportRectTwo);
 
 
         //Background movement:
@@ -51,6 +61,7 @@ public class BackgroundSet {
     public void changeBackground() {
         HBox boxOne = new HBox();
         boxOne.getChildren().add(iv1);
+        boxOne.getChildren().add(iv2);
         main.getRoot().getChildren().add(boxOne);
     }
 
