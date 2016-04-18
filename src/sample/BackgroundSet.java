@@ -9,6 +9,8 @@ public class BackgroundSet {
     public Main main;
     Image image = new Image("sample/asset/splash.jpg");
     ImageView iv1 = new ImageView();
+    private Thread backgroundScrollRunner = new Thread();
+
 
 
     BackgroundSet(){
@@ -21,7 +23,15 @@ public class BackgroundSet {
         iv1.setPreserveRatio(true);
         iv1.setSmooth(true);
         iv1.setCache(true);
-        System.out.println("sa");
+        iv1.setFitWidth(600);
+        iv1.setFitHeight(600);
+
+
+        backgroundScrollRunner = new Thread(() -> {
+        });
+        backgroundScrollRunner.start();
+
+
         changeBackground();
     }
 
@@ -33,18 +43,3 @@ public class BackgroundSet {
 
 }
 
-
-/*
-
-
-    private Thread backgroundScrollRunner = new Thread();
-
-    public void paintComponent() {
-
-        boxOne.setBackground(new Background(myBI));
-
-
-        backgroundScrollRunner = new Thread(() -> {
-        });
-        backgroundScrollRunner.start();
-    }*/
