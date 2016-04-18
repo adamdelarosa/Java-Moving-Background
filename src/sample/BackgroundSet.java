@@ -27,10 +27,15 @@ public class BackgroundSet {
         backgroundScrollRunner = new Thread(() -> {
             for(int positionY = 0; true; positionY+=4) {
                 try {
+                    if(iv1.getTranslateY() == 500){
+                        System.out.println("Yes");
+                    }
 
                     iv1.setTranslateY(positionY);
 
-                    backgroundScrollRunner.sleep(100);
+                    backgroundScrollRunner.sleep(50);
+                    System.out.println(iv1.getTranslateY());
+
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
