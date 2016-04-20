@@ -46,15 +46,17 @@ public class BackgroundSet {
             while(true) {
                 positionYOne+=10;
                 try {
-                    if(iv1.getTranslateY() >= 500 || iv1.getTranslateY() == 0){
+                    if(true){
                         positionYTwo+=10;
                         iv2.setTranslateY(positionYTwo);
                         System.out.println("Two started" + positionYTwo);
-
+                    }else{
+                         positionYTwo = -1;
                     }
 
                     if(iv2.getTranslateY() >= 500 || iv1.getTranslateY() >= 1000){
                         iv1.setTranslateY(0);
+
                         positionYOne+=10;
                         positionYOne = 0;
                         System.out.println("One started" + positionYOne);
