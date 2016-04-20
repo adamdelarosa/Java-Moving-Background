@@ -29,7 +29,8 @@ public class Main extends Application {
     }
 
     public void MainStarter() {
-        new BackgroundSet();
+       // new BackgroundSet();
+        new BackGroundMove();
     }
     public static void main(String[] args) {
         launch(args);
