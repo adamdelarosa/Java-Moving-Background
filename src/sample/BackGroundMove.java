@@ -1,6 +1,8 @@
 package sample;
 
+import javafx.scene.Group;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -18,6 +20,12 @@ public class BackGroundMove {
     private final double[] angles = new double[STAR_COUNT];
     private final long[] start = new long[STAR_COUNT];
     private final Random random = new Random();
+    //public Scene scenenew = new Scene(new Group(nodes), 800, 600, Color.BLACK);
+
+
+
+
+    HBox boxOne = new HBox();
 
 
     BackGroundMove() {
@@ -34,6 +42,9 @@ public class BackGroundMove {
     }
 
     public void paintComponent() {
+
+
+
 
         new AnimationTimer() {
             @Override
@@ -55,9 +66,9 @@ public class BackGroundMove {
     }
 
     public void changeBackground() {
-        HBox boxOne = new HBox();
-        boxOne.getChildren().add();
-        main.getRoot().getChildren().add(boxOne);
+        //main.globalPrimartStage.setScene(scene);
+        main.globalPrimartStage.setTitle("sa32");
+        //main.getRoot().getChildren().add(boxOne);
     }
 
 }

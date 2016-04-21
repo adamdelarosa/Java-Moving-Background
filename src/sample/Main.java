@@ -8,7 +8,13 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
+
+    public BackGroundMove backGroundMove;
     public Scene scene = new Scene(root,450,700);
+    public Stage globalPrimartStage;
+
+
+
     public static Group root = new Group();
 
     public static Group getRoot(){
@@ -26,6 +32,9 @@ public class Main extends Application {
         primaryStage.setResizable(false);
         primaryStage.show();
         MainStarter();
+        globalPrimartStage = primaryStage;
+
+
     }
 
     public void MainStarter() {
