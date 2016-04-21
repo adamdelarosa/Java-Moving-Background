@@ -66,6 +66,7 @@ public class BackGroundMove {
         //main.globalPrimartStage.setScene(scene);
         main.globalPrimartStage.setTitle("sa32");
         //main.getRoot().getChildren().add(boxOne);
+
     }
 
 }
