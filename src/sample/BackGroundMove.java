@@ -43,9 +43,6 @@ public class BackGroundMove {
 
     public void paintComponent() {
 
-
-
-
         new AnimationTimer() {
             @Override
             public void handle(long now) {
