@@ -55,6 +55,7 @@ public class BackGroundMove {
                     final long t = (now - start[i]) % 2000000000;
                     final double d = t * radius / 2000000000.0;
                     node.setTranslateX(Math.cos(angle) * d + width);
+
                     node.setTranslateY(Math.sin(angle) * d + height);
                 }
             }
