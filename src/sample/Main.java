@@ -21,13 +21,12 @@ public class Main extends Application {
         return root;
     }
 
-
     @Override
     public void start(Stage primaryStage) throws Exception {
         scene.setFill(Color.BLACK);
         primaryStage.sizeToScene();
         primaryStage.setScene(scene);
-        primaryStage.setResizable(false);
+        //primaryStage.setResizable(false);
         primaryStage.show();
         MainStarter();
         globalPrimartStage = primaryStage;
@@ -35,7 +34,7 @@ public class Main extends Application {
 
     public void MainStarter() {
        // new BackgroundSet();
-        new BackGroundMove(this);
+        new BackGroundMove(this,this);
     }
     public static void main(String[] args) {
         launch(args);

@@ -13,24 +13,23 @@ import java.util.Random;
 
 public class BackGroundMove {
 
-    public Main main, sceneMain;
+    public Main main,sceneMain,globalPrimartStageMain;
 
     private static final int STAR_COUNT = 20000;
     private final Rectangle[] nodes = new Rectangle[STAR_COUNT];
     private final double[] angles = new double[STAR_COUNT];
     private final long[] start = new long[STAR_COUNT];
     private final Random random = new Random();
-    //public Scene scenenew = new Scene(new Group(nodes), 800, 600, Color.BLACK);
 
-
-    BackGroundMove(Main scenemain) {
+    BackGroundMove(Main scenemain,Main globalprimartstageMain) {
         testArea();
         sceneMain = scenemain;
+        globalPrimartStageMain = globalprimartstageMain;
     }
 
     public void testArea() {
         for (int i = 0; i < STAR_COUNT; i++) {
-            nodes[i] = new Rectangle(1, 1, Color.WHITE);
+            nodes[i] = new Rectangle(2, 2, Color.WHITE);
             angles[i] = 2.0 * Math.PI * random.nextDouble();
             start[i] = random.nextInt(2000000000);
         }
@@ -38,8 +37,8 @@ public class BackGroundMove {
         new AnimationTimer() {
             @Override
             public void handle(long now) {
-                final double width = 0.5 * 500;
-                final double height = 0.5 * 500;
+                final double width = 0.5 * globalPrimartStageMain.globalPrimartStage.getWidth();
+                final double height = 0.5 * globalPrimartStageMain.globalPrimartStage.getHeight();
                 final double radius = Math.sqrt(2) * Math.max(width, height);
                 for (int i = 0; i < STAR_COUNT; i++) {
                     final Node node = nodes[i];
@@ -52,10 +51,6 @@ public class BackGroundMove {
             }
         }.start();
         new Scene(new Group(nodes), 800, 600, Color.BLACK);
-
-
-        //main.globalPrimartStage.setScene(scene);
-        //main.globalPrimartStage.setTitle("sa32");
 
         HBox boxOne = new HBox();
         boxOne.getChildren().addAll(nodes);
