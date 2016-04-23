@@ -10,9 +10,6 @@ public class Main extends Application {
 
     public Scene scene = new Scene(root,450,700);
     public Stage globalPrimartStage;
-
-
-
     public static Group root = new Group();
 
     public static Group getRoot(){
@@ -31,7 +28,7 @@ public class Main extends Application {
     }
 
     public void MainStarter() {
-        new BackGroundMove(this,this);
+        new BackGroundSlide(this,this);
     }
     public static void main(String[] args) {
         launch(args);

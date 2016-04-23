@@ -5,7 +5,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 
-public class BackgroundSet {
+public class BackgroundRandomStars {
 
     public Main main;
 
@@ -22,7 +22,7 @@ public class BackgroundSet {
 
 
 
-    BackgroundSet(){
+    BackgroundRandomStars(){
         paintComponent();
     }
 
