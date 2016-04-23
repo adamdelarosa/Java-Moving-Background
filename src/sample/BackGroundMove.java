@@ -13,7 +13,7 @@ import java.util.Random;
 
 public class BackGroundMove {
 
-    public Main main;
+    public Main main, sceneMain;
 
     private static final int STAR_COUNT = 20000;
     private final Rectangle[] nodes = new Rectangle[STAR_COUNT];
@@ -23,10 +23,9 @@ public class BackGroundMove {
     //public Scene scenenew = new Scene(new Group(nodes), 800, 600, Color.BLACK);
 
 
-
-    BackGroundMove() {
-        paintComponent();
+    BackGroundMove(Main scenemain) {
         testArea();
+        sceneMain = scenemain;
     }
 
     public void testArea() {
@@ -35,9 +34,7 @@ public class BackGroundMove {
             angles[i] = 2.0 * Math.PI * random.nextDouble();
             start[i] = random.nextInt(2000000000);
         }
-    }
 
-    public void paintComponent() {
         new AnimationTimer() {
             @Override
             public void handle(long now) {
@@ -54,17 +51,11 @@ public class BackGroundMove {
                 }
             }
         }.start();
-        changeBackground();
-    }
-
-    public void changeBackground() {
-        HBox boxOne = new HBox();
-        boxOne.getChildren().addAll(nodes);
 
         //main.globalPrimartStage.setScene(scene);
         //main.globalPrimartStage.setTitle("sa32");
-        main.getRoot().getChildren().add(boxOne);
+        //main.getRoot().getChildren().add(boxOne);
+         sceneMain.scene.setFill(Color.BLUE);
     }
-
 }
 

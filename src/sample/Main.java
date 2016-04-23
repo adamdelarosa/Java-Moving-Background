@@ -35,7 +35,7 @@ public class Main extends Application {
 
     public void MainStarter() {
        // new BackgroundSet();
-        new BackGroundMove();
+        new BackGroundMove(this);
     }
     public static void main(String[] args) {
         launch(args);
