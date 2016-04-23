@@ -20,13 +20,10 @@ public class BackGroundMove {
     private final double[] angles = new double[STAR_COUNT];
     private final long[] start = new long[STAR_COUNT];
     private final Random random = new Random();
-    //public Scene scenenew = new Scene(new Group(nodes), 800, 600, Color.BLACK);
-
-
+   // public Scene scenenew = new Scene(new Group(nodes), 800, 600, Color.BLACK);
 
 
     HBox boxOne = new HBox();
-
 
     BackGroundMove() {
         paintComponent();
@@ -42,7 +39,6 @@ public class BackGroundMove {
     }
 
     public void paintComponent() {
-
         new AnimationTimer() {
             @Override
             public void handle(long now) {
@@ -55,7 +51,6 @@ public class BackGroundMove {
                     final long t = (now - start[i]) % 2000000000;
                     final double d = t * radius / 2000000000.0;
                     node.setTranslateX(Math.cos(angle) * d + width);
-
                     node.setTranslateY(Math.sin(angle) * d + height);
                 }
             }
@@ -65,9 +60,8 @@ public class BackGroundMove {
 
     public void changeBackground() {
         //main.globalPrimartStage.setScene(scene);
-        main.globalPrimartStage.setTitle("sa32");
+        //main.globalPrimartStage.setTitle("sa32");
         //main.getRoot().getChildren().add(boxOne);
-
     }
 
 }

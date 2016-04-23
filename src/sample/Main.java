@@ -22,8 +22,6 @@ public class Main extends Application {
     }
 
 
-
-
     @Override
     public void start(Stage primaryStage) throws Exception {
         scene.setFill(Color.BLACK);
@@ -33,8 +31,6 @@ public class Main extends Application {
         primaryStage.show();
         MainStarter();
         globalPrimartStage = primaryStage;
-
-
     }
 
     public void MainStarter() {
