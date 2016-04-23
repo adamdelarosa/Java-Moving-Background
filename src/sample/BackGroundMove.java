@@ -20,10 +20,9 @@ public class BackGroundMove {
     private final double[] angles = new double[STAR_COUNT];
     private final long[] start = new long[STAR_COUNT];
     private final Random random = new Random();
-   // public Scene scenenew = new Scene(new Group(nodes), 800, 600, Color.BLACK);
+    //public Scene scenenew = new Scene(new Group(nodes), 800, 600, Color.BLACK);
 
 
-    HBox boxOne = new HBox();
 
     BackGroundMove() {
         paintComponent();
@@ -59,9 +58,12 @@ public class BackGroundMove {
     }
 
     public void changeBackground() {
+        HBox boxOne = new HBox();
+        boxOne.getChildren().addAll(nodes);
+
         //main.globalPrimartStage.setScene(scene);
         //main.globalPrimartStage.setTitle("sa32");
-        //main.getRoot().getChildren().add(boxOne);
+        main.getRoot().getChildren().add(boxOne);
     }
 
 }
