@@ -8,8 +8,6 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
-
-    public BackGroundMove backGroundMove;
     public Scene scene = new Scene(root,450,700);
     public Stage globalPrimartStage;
 
@@ -33,7 +31,6 @@ public class Main extends Application {
     }
 
     public void MainStarter() {
-       // new BackgroundSet();
         new BackGroundMove(this,this);
     }
     public static void main(String[] args) {
