@@ -51,11 +51,16 @@ public class BackGroundMove {
                 }
             }
         }.start();
+        new Scene(new Group(nodes), 800, 600, Color.BLACK);
+
 
         //main.globalPrimartStage.setScene(scene);
         //main.globalPrimartStage.setTitle("sa32");
-        //main.getRoot().getChildren().add(boxOne);
-         sceneMain.scene.setFill(Color.BLUE);
+
+        HBox boxOne = new HBox();
+        boxOne.getChildren().addAll(nodes);
+        main.getRoot().getChildren().add(boxOne);
+         //sceneMain.scene.setFill(Color.BLUE);
     }
 }
 
