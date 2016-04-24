@@ -45,9 +45,9 @@ public class BackGroundSlide {
                 }
             }
         }.start();
-        HBox boxOne = new HBox();
-        boxOne.getChildren().addAll(nodes);
-        main.getRoot().getChildren().add(boxOne);
+        HBox backgroundBox = new HBox();
+        backgroundBox.getChildren().addAll(nodes);
+        main.getRoot().getChildren().add(backgroundBox);
     }
 }
 

@@ -29,6 +29,7 @@ public class Main extends Application {
 
     public void MainStarter() {
         new BackGroundSlide(this,this);
+        new SpaceShip();
     }
     public static void main(String[] args) {
         launch(args);
