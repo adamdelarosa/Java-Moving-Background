@@ -35,27 +35,19 @@ public class BackGroundSlide {
         new AnimationTimer() {
             @Override
             public void handle(long now) {
-                final double width = 0.5 * globalPrimartStageMain.globalPrimartStage.getWidth();
-                final double height = 0.5 * globalPrimartStageMain.globalPrimartStage.getHeight();
-                final double radius = Math.sqrt(1) * Math.max(width, height);
+                final double height = 0; //Stars start here
+                final double radius = 1000; //Start end here
                 for (int i = 0; i < STAR_COUNT; i++) {
                     final Node node = nodes[i];
-                    final double angle = 3;
-                    //final double angle = angles[i];
                     final long t = (now - start[i]) % 2000000000;
                     final double d = t * radius / 2000000000.0;
-                    //node.setTranslateX(Math.cos(angle) * d + width);
                     node.setTranslateY(Math.sin(-400) * d + height);
-                    ////                    node.setTranslateY(Math.sin(angle) * d + height);
-
-                    //System.out.println(angle);
                 }
             }
         }.start();
         HBox boxOne = new HBox();
         boxOne.getChildren().addAll(nodes);
         main.getRoot().getChildren().add(boxOne);
-         //sceneMain.scene.setFill(Color.BLUE);
     }
 }
 
